@@ -1,0 +1,41 @@
+.scroll-to-top-button {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    height: 3rem;
+    width: 3rem;
+    background-color: var(--theme-color);
+    opacity: 0.8;
+    padding: 0;
+    border-radius: 50%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    svg{
+        position: relative;
+        bottom: 2px;
+    }
+
+    &:hover {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+.fadeUp {
+    animation: fadeUp 2s infinite;
+}
+
+@keyframes fadeUp {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-5px);
+    }
+}

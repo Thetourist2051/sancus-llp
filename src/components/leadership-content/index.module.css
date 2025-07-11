@@ -1,0 +1,170 @@
+.carousel {
+    position: relative;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+    position: relative;
+}
+
+.slide {
+    animation: fadeSlide .5s ease-in-out;
+    background: var(--card-bg, #fff);
+    color: var(--text-light, #000);
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+.icon {
+    width: 5.5rem;
+    height: 5.5rem;
+    background-color: var(--theme-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.card-content {
+    width: calc(100% - 5.5rem - 1rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+
+    h2 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--text-light);
+        margin-bottom: 0rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        margin: 0;
+        font-weight: 400;
+    }
+}
+
+.location {
+    font-style: italic;
+    color: var(--text-muted, #666);
+}
+
+.description {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: left;
+    min-height: 140px;
+}
+
+.controls {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background-color: var(--theme-color, #c5a059);
+}
+
+.arrow {
+    position: absolute;
+    top: calc((100% - 1rem)/2);
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background: transparent;
+    border: none;
+    background-color: var(--theme-color, #c5a059);
+    color: var(--text-light);
+    cursor: pointer;
+    z-index: 2;
+    transition: opacity 0.3s;
+    height: 2.5rem;
+    width: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+
+.left {
+    left: -1.25rem;
+}
+
+.right {
+    right: -1.25rem;
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateX(0%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(100%);
+    }
+}
+
+
+.leadership-section {
+    .leadership-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-light);
+        text-align: center;
+    }
+
+    .leadership-subtitle {
+        font-size: 1rem;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+        line-height: 1.6;
+        color: var(--text-muted);
+        text-align: center;
+    }
+}
+
+
+/* Add these to your existing styles */
+.slide {
+    transition: all 0.5s ease;
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+.arrow:hover {
+    transform: scale(1.1);
+}
+
+.dot {
+    transition: all 0.3s ease;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+}
+
+/* Animation for active dot */
+.dot.active {
+    transform: scale(1.3);
+}

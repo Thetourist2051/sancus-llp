@@ -1,0 +1,81 @@
+.legal-services-section {
+    background: linear-gradient(135deg, #0f1118, #1a1d24);
+    padding: 3rem 0;
+    color: #fff;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.section-title span {
+    color: var(--theme-color);
+}
+
+.card-col {
+    padding: 1rem;
+}
+
+.card {
+    background-color: #14151c;
+    border-radius: 0.75rem;
+    padding: 2rem;
+    height: 100%;
+    border-top: 4px solid var(--theme-color);
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.icon {
+    background-color: var(--theme-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.card-description {
+    font-size: 0.95rem;
+    color: #ccc;
+    margin-bottom: 0.75rem;
+}
+
+.points-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 1rem 0;
+}
+
+.points-list li {
+    font-size: 0.9rem;
+    color: #ddd;
+    margin-bottom: 0.4rem;
+}
+
+.learn-more {
+    color: var(--theme-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.learn-more:hover {
+    text-decoration: underline;
+}

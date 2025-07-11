@@ -1,0 +1,188 @@
+.contact-section {
+    color: var(--text-light);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+    color: var(--text-muted);
+}
+
+.info-box {
+    padding: 0rem;
+    padding: 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.info-box h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.info-box p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    transition: all .5s;
+
+    .info-icon {
+        transition: all .5s;
+        height: 3rem;
+        width: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--theme-color);
+        color: var(--text-light);
+        flex-shrink: 0;
+        transition: all 0.5s;
+        border-radius: 50%;
+    }
+
+
+    p {
+        margin: 0;
+    }
+}
+
+.info-item:hover {
+    .info-icon {
+        animation: shake-icon 0.5s linear;
+    }
+}
+
+@keyframes shake-icon {
+    0% {
+        transform: rotate(-20deg) scale(1.1);
+    }
+
+    50% {
+        transform: rotate(20deg) scale(1.2);
+    }
+
+    100% {
+        transform: rotate(-20deg) scale(1.1);
+    }
+}
+
+.info-item:last-child {
+    margin-bottom: 0rem;
+}
+
+.info-item:hover {
+    box-shadow: 0 0 0 2px var(--theme-color);
+}
+
+
+
+.form-box {
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+}
+
+.form-box h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea {
+    width: 100%;
+    border: 1px solid;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+    border-radius: 0.5rem;
+    transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+.form-box input:focus,
+.form-box select:focus,
+.form-box textarea:focus {
+    border-color: var(--theme-color);
+    outline: none;
+}
+
+.form-box button {
+    background-color: var(--theme-color);
+    color: #000;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form-box button:hover {
+    background-color: #b9924a;
+}
+
+.form-box label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+/* 🌙 Dark Theme */
+body[data-theme="dark"] .form-box {
+    background-color: var(--card-bg);
+}
+
+body[data-theme="dark"] .form-box h4,
+body[data-theme="dark"] .form-box label {
+    color: var(--text-light);
+}
+
+body[data-theme="dark"] .form-box input,
+body[data-theme="dark"] .form-box select,
+body[data-theme="dark"] .form-box textarea {
+    background-color: #12141a;
+    border-color: #2a2c33;
+    color: var(--text-light);
+}
+
+/* ☀️ Light Theme */
+body[data-theme="light"] .form-box {
+    background-color: #ffffff;
+}
+
+body[data-theme="light"] .form-box h4,
+body[data-theme="light"] .form-box label {
+    color: #1a1a1a;
+}
+
+body[data-theme="light"] .form-box input,
+body[data-theme="light"] .form-box select,
+body[data-theme="light"] .form-box textarea {
+    background-color: #f9f9f9;
+    border-color: #cccccc;
+    color: #1a1a1a;
+}

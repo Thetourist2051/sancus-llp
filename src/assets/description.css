@@ -1,0 +1,372 @@
+/* ==============================================
+   BASE STYLES (applies to both themes)
+   ============================================== */
+.description {
+    line-height: 1.6;
+    margin: 0 auto;
+    font-size: 16px;
+
+    /* Reset all margins */
+    * {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /* Headings base styles */
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        font-size: 1.875rem;
+        margin-bottom: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.35rem;
+    }
+
+    h4 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+    }
+
+    h5 {
+        font-size: 1.125rem;
+        margin-bottom: 0.75rem;
+    }
+
+    h6 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Common elements */
+    p {
+        margin-bottom: 1rem;
+    }
+
+    ul, ol {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+    }
+
+    pre {
+        border-radius: 4px;
+        padding: 1rem;
+        overflow-x: auto;
+        margin-bottom: 1rem;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.9em;
+    }
+
+    code {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.9em;
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+    }
+
+    blockquote {
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+        font-style: italic;
+        border-left: 4px solid;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    th, td {
+        padding: 0.5rem 0.75rem;
+        text-align: left;
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Position elements */
+    sup, sub {
+        font-size: 0.75em;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+    }
+
+    sup {
+        top: -0.5em;
+    }
+
+    sub {
+        bottom: -0.25em;
+    }
+}
+
+/* ==============================================
+     DARK THEME
+     ============================================== */
+body[data-theme="dark"] .description {
+    color: #ffffff;
+
+    /* Color variables */
+    --text-light: #ffffff;
+    --text-muted: #cccccc;
+    --text-primary: #c5a059;
+    --text-secondary: #7d9db8;
+    --text-tertiary: #a38dca;
+    --text-danger: #e57373;
+    --border-color: #2e2e34;
+    --code-bg: #25252b;
+    --table-odd: #232329;
+    --table-even: #1f1f25;
+    --highlight: rgba(197, 160, 89, 0.15);
+
+    /* Typography */
+    h1 {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    h2 {
+        color: var(--text-light);
+    }
+
+    h3 {
+        color: var(--text-secondary);
+    }
+
+    h4 {
+        color: var(--text-tertiary);
+    }
+
+    h5, h6 {
+        color: var(--text-muted);
+    }
+
+    /* Links */
+    a {
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    a:hover {
+        color: #d4b16e;
+        text-decoration: underline;
+    }
+
+    /* Code */
+    pre, code {
+        background-color: var(--code-bg);
+        color: var(--text-light);
+        border: 1px solid var(--border-color);
+    }
+
+    /* Blockquotes */
+    blockquote {
+        border-left-color: var(--text-primary);
+        color: var(--text-muted);
+        background-color: #252525;
+    }
+
+    /* Tables */
+    th, td {
+        border: 1px solid var(--border-color);
+    }
+
+    th {
+        background-color: var(--code-bg);
+        color: var(--text-light);
+    }
+
+    tr:nth-child(odd) {
+        background-color: var(--table-odd);
+    }
+
+    tr:nth-child(even) {
+        background-color: var(--table-even);
+    }
+
+    /* HR */
+    hr {
+        background-color: var(--border-color);
+    }
+
+    /* Forms */
+    input, textarea, select, button {
+        background-color: var(--code-bg);
+        color: var(--text-light);
+        border: 1px solid var(--border-color);
+    }
+
+    /* Mark */
+    mark {
+        background-color: var(--highlight);
+        color: inherit;
+    }
+
+    /* Small text */
+    small {
+        color: var(--text-muted);
+    }
+}
+
+/* ==============================================
+     LIGHT THEME
+     ============================================== */
+body[data-theme="light"] .description {
+    color: #333333;
+
+    /* Color variables */
+    --text-dark: #222222;
+    --text-muted: #666666;
+    --text-primary: #c5a059;
+    --text-secondary: #d8ab57;
+    --text-tertiary: #ffd78b;
+    --text-danger: #e53e3e;
+    --border-color: #e2e8f0;
+    --code-bg: #f5f5f5;
+    --table-odd: #f9f9f9;
+    --table-even: #ffffff;
+    --highlight: rgba(0, 102, 204, 0.1);
+
+    /* Typography */
+    h1 {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    h2 {
+        color: var(--text-primary);
+    }
+
+    h3 {
+        color: var(--text-secondary);
+    }
+
+    h4 {
+        color: var(--text-tertiary);
+    }
+
+    h5, h6 {
+        color: var(--text-muted);
+    }
+
+    /* Links */
+    a {
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+
+    a:hover {
+        color: var(--text-primary);
+        text-decoration: underline;
+    }
+
+    /* Code */
+    pre, code {
+        background-color: var(--code-bg);
+        color: #333;
+        border: 1px solid var(--border-color);
+    }
+
+    /* Blockquotes */
+    blockquote {
+        border-left-color: var(--text-primary);
+        color: #555;
+        background-color: #f9f9f9;
+    }
+
+    /* Tables */
+    th, td {
+        border: 1px solid var(--border-color);
+    }
+
+    th {
+        background-color: #f5f5f5;
+    }
+
+    tr:nth-child(even) {
+        background-color: var(--table-even);
+    }
+
+    /* HR */
+    hr {
+        background-color: var(--border-color);
+    }
+
+    /* Forms */
+    input, textarea, select, button {
+        background-color: #ffffff;
+        color: #333;
+        border: 1px solid var(--border-color);
+    }
+
+    /* Mark */
+    mark {
+        background-color: var(--highlight);
+        color: inherit;
+    }
+
+    /* Small text */
+    small {
+        color: var(--text-muted);
+    }
+}
+
+/* ==============================================
+     SHARED COMPONENTS (after theme definitions)
+     ============================================== */
+.description {
+
+    /* Alerts */
+    .alert {
+        padding: 0.75rem 1rem;
+        margin-bottom: 1rem;
+        border-radius: 4px;
+        border-left: 4px solid;
+    }
+
+    .alert-primary {
+        background-color: var(--highlight);
+        border-left-color: var(--text-primary);
+    }
+
+    /* Badges */
+    .badge {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-right: 0.5rem;
+    }
+
+    .badge-primary {
+        background-color: var(--text-primary);
+        color: white;
+    }
+}

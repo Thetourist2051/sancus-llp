@@ -1,0 +1,135 @@
+.header-layer {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: var(--card-bg);
+    color: var(--text-light);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+    will-change: transform;
+    backdrop-filter: blur(10px);
+}
+
+[data-theme="light"] .header-layer {
+    border-bottom: 1px solid #dfdfdf;
+}
+
+[data-theme="dark"] .header-layer {
+    border-bottom: 1px solid #444444;
+}
+
+/* Animation classes */
+.show {
+    transform: translateY(0%);
+}
+
+.hide {
+    transform: translateY(-100%);
+}
+
+
+.logo-circle {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--theme-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #000;
+    text-transform: lowercase;
+    font-size: 1rem;
+}
+
+.brand-name {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.nav-menu {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-item {
+    position: relative;
+    cursor: pointer;
+}
+
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    position: relative;
+    font-size: 1rem;
+    transition: all color 0.4s;
+}
+
+.nav-link:hover {
+    color: var(--text-muted);
+}
+
+
+.active-nav-item {
+    .nav-link {
+        text-decoration: none;
+        color: var(--text-muted);
+        font-weight: 500;
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+.nav-item::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -0.125rem;
+    height: 0.125rem;
+    width: 0;
+    background-color: var(--text-muted);
+    border-radius: 4px;
+    transition: width 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.active-nav-item::after {
+    width: 100%;
+    opacity: 1;
+}
+
+
+
+[data-theme="dark"] {
+    .active-nav-item {
+        .nav-link {
+            color: var(--text-muted);
+        }
+    }
+
+    .nav-item::after {
+        background-color: var(--text-muted);
+    }
+
+}
+
+[data-theme="light"] {
+    .active-nav-item {
+        .nav-link {
+            color: var(--theme-color);
+        }
+    }
+
+    .nav-item::after {
+        background-color: var(--theme-color);
+    }
+}
+
+
+
