@@ -138,10 +138,7 @@ const AppHeaderComponent: React.FC<Props> = ({ activeNav }) => {
 
   return (
     <>
-      <header
-        className={`${styles["header-layer"]} py-4`}
-        id="app-header"
-      >
+      <header className={`${styles["header-layer"]} py-4`} id="app-header">
         <div className="container">
           <div className="d-flex justify-content-between align-items-center w-100">
             <div className="d-flex justify-content-start align-items-center gap-3">
@@ -163,7 +160,11 @@ const AppHeaderComponent: React.FC<Props> = ({ activeNav }) => {
                 </div>
               </div>
 
-              <div className="d-flex align-items-center gap-2">
+              <div
+                className="d-flex align-items-center gap-2"
+                style={{ cursor: "pointer" }}
+                onClick={() => onNavItemClick(navLinks[0])}
+              >
                 <div className={styles["logo-circle"]}>S</div>
                 <h5 className={styles["brand-name"]}>Sancus LLP</h5>
               </div>
