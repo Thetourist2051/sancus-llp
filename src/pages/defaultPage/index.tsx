@@ -7,7 +7,7 @@ type Props = {};
 const DefaultPage: React.FC<Props> = () => {
   return (
     <>
-      <div className="default-page " style={{ position: "relative" }}>
+      <div className="default-page" style={{ position: "relative" }}>
         <AppHeaderComponent />
         <LandingPageComponenet />
       </div>
