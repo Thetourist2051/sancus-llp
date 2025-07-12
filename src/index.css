@@ -8,6 +8,12 @@
   --transition-fast: 0.3s ease-in-out;
   --transition-slow: 0.5s ease;
 
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-sizing: border-box;
+
   .spacing-class {
     padding: 3rem 0;
     animation: fadeInSection var(--transition-slow) both;
@@ -412,6 +418,9 @@ button.more-about-us:hover {
     .spacing-class {
       padding: 2rem 0.75rem;
     }
+  }
+  .default-page{
+    overflow-x: hidden;
   }
 
 }

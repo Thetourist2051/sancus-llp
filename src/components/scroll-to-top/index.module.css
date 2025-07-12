@@ -1,8 +1,8 @@
 .scroll-to-top-button {
     position: fixed;
-    left: calc(100% - 4rem);
+    /* left: calc(100% - 4rem); */
     bottom: 1.5rem;
-    /* right: 1.5rem; */
+    right: 1.5rem;
     height: 3rem;
     width: 3rem;
     background-color: var(--theme-color);
@@ -15,7 +15,7 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    transition: none!important;
+    transition: none !important;
 
     svg {
         position: relative;

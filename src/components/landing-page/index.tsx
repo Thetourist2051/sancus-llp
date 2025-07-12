@@ -83,7 +83,7 @@ const LandingPageComponent: React.FC = () => {
 
   return (
     <>
-      <ScrollToTopButton data-aos="fade-up" data-aos-delay="50" />
+      <ScrollToTopButton data-aos="none" data-aos-delay="0" />
       <section
         className={`spacing-class gradient ${styles["intro-section"]}`}
         id="intro-section"

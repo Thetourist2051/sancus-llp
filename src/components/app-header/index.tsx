@@ -139,14 +139,34 @@ const AppHeaderComponent: React.FC<Props> = ({ activeNav }) => {
   return (
     <>
       <header
-        className={`${styles["header-layer"]} ${styles["show"]} py-4`}
+        className={`${styles["header-layer"]} py-4`}
         id="app-header"
       >
         <div className="container">
           <div className="d-flex justify-content-between align-items-center w-100">
-            <div className="d-flex align-items-center gap-2">
-              <div className={styles["logo-circle"]}>S</div>
-              <h5 className={styles["brand-name"]}>Sancus LLP</h5>
+            <div className="d-flex justify-content-start align-items-center gap-3">
+              <div className="d-flex justify-content-start align-items-center gap-2">
+                <div
+                  className="close-icon d-md-none d-flex"
+                  onClick={() => setShowsidebar(!showSidebar)}
+                >
+                  <Icon
+                    icon={
+                      showSidebar
+                        ? "line-md:menu-to-close-transition"
+                        : "material-symbols:menu-rounded"
+                    }
+                    height={32}
+                    width={32}
+                    color="var(--text-light)"
+                  ></Icon>
+                </div>
+              </div>
+
+              <div className="d-flex align-items-center gap-2">
+                <div className={styles["logo-circle"]}>S</div>
+                <h5 className={styles["brand-name"]}>Sancus LLP</h5>
+              </div>
             </div>
 
             <ul
@@ -174,24 +194,7 @@ const AppHeaderComponent: React.FC<Props> = ({ activeNav }) => {
               ))}
             </ul>
 
-            <div className="d-flex justify-content-end align-items-center gap-2">
-              <SwitchButton mode={mode} onChange={setMode} />
-              <div
-                className="close-icon d-md-none d-flex"
-                onClick={() => setShowsidebar(!showSidebar)}
-              >
-                <Icon
-                  icon={
-                    showSidebar
-                      ? "line-md:menu-to-close-transition"
-                      : "hugeicons:menu-collapse"
-                  }
-                  height={32}
-                  width={32}
-                  color="var(--text-light)"
-                ></Icon>
-              </div>
-            </div>
+            <SwitchButton mode={mode} onChange={setMode} />
           </div>
         </div>
       </header>

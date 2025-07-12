@@ -81,7 +81,7 @@ const ContactFormComponenet: React.FC = () => {
           consultation with our experienced legal team.
         </p>
         <div className="row">
-          <div className="col-md-6 ps-md-0 pe-md-3 px-2 md-md-0 mb-3" data-aos="fade-right">
+          <div className="col-md-6 ps-md-0 pe-md-3 px-2 mb-md-0  mb-3" data-aos="fade-right">
             <div className={styles["info-box"]}>
               <h4>Contact Information</h4>
               <p>
