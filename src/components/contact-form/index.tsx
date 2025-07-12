@@ -81,7 +81,7 @@ const ContactFormComponenet: React.FC = () => {
           consultation with our experienced legal team.
         </p>
         <div className="row">
-          <div className="col-md-6 ps-0 pe-md-3 pe-0" data-aos="fade-right">
+          <div className="col-md-6 ps-md-0 pe-md-3 px-2 md-md-0 mb-3" data-aos="fade-right">
             <div className={styles["info-box"]}>
               <h4>Contact Information</h4>
               <p>
@@ -185,7 +185,7 @@ const ContactFormComponenet: React.FC = () => {
 
           {/* Contact Form */}
           <div
-            className="col-md-6 ps-md-3 px-0"
+            className="col-md-6 ps-md-3 pe-md-0 px-2"
             data-aos="fade-left"
             data-aos-delay="200"
           >

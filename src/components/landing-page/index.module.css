@@ -1,4 +1,4 @@
-.intro-section {
+.landing-page{
     position: relative;
     z-index: 2;
 
@@ -488,4 +488,18 @@
         height: 200%;
         width: 200%;
     }
+}
+
+
+@media (max-width: 768px) {
+    .menu-option {
+        display: none;
+    }
+
+    .intro-section {
+        h2 {
+            font-size: 1.75rem;
+        }
+    }
+
 }

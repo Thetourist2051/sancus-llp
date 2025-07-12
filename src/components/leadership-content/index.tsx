@@ -80,7 +80,7 @@ const LeadershipContentComponenet: React.FC<Props> = () => {
             data-aos={direction === "right" ? "fade-left" : "fade-right"}
             data-aos-duration="500"
           >
-            <div className="d-flex w-full gap-3 mb-3">
+            <div className="d-flex w-full gap-md-3 gap-2 mb-3 align-items-center">
               <div className={styles["icon"]}>
                 <Icon
                   icon={LeadershipData[index].icon}

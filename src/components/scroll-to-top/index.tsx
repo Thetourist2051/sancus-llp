@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import styles from "./index.module.css";
 
-const ScrollToTopButton = () => {
+type Props = React.HTMLAttributes<HTMLDivElement>;
+
+const ScrollToTopButton = ({ ...aosProps }: Props) => {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
@@ -45,13 +47,12 @@ const ScrollToTopButton = () => {
     <div
       className={styles["scroll-to-top-button"]}
       onClick={scrollToTop}
-      data-aos="fade-up"
-      data-aos-duration="600"
+      {...aosProps}
     >
       <Icon
         icon="hugeicons:arrow-up-double"
-        height={20}
-        width={20}
+        height={24}
+        width={24}
         color="var(--text-light)"
         className={styles["fadeUp"]}
       />

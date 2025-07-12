@@ -6,6 +6,8 @@ import { blogPosts, type BlogPost } from "../../data/blogData";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import AppFooterComponent from "../../components/app-footer";
+import ScrollToTopButton from "../../components/scroll-to-top";
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -36,11 +38,11 @@ const BlogPost = () => {
     <>
       <AppHeaderComponent activeNav={3} />
       <section
-        className={`py-4 gradient ${styles["blogpost-section"]}`}
+        className={`py-md-5 py-4 px-md-0 px-3 gradient ${styles["blogpost-section"]}`}
         id="blogpost-section"
       >
         <div className="container">
-          <div className="row">
+          <div className="row m-0">
             <div className="col-12 p-0">
               <div
                 className={styles["back-btn"] + " " + "mb-3"}
@@ -104,7 +106,7 @@ const BlogPost = () => {
 
               <img
                 src={selectedBlog.image}
-                className="mb-5"
+                className="mb-md-5 mb-3"
                 alt={selectedBlog.title}
                 data-aos="zoom-in"
                 data-aos-delay="300"
@@ -141,6 +143,8 @@ const BlogPost = () => {
           </div>
         </div>
       </section>
+      <ScrollToTopButton data-aos="none"  />
+      <AppFooterComponent />
     </>
   );
 };

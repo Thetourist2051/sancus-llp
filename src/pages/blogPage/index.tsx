@@ -5,6 +5,8 @@ import { blogPosts } from "../../data/blogData";
 import styles from "./index.module.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import AppFooterComponent from "../../components/app-footer";
+import ScrollToTopButton from "../../components/scroll-to-top";
 
 type Props = {};
 
@@ -24,7 +26,7 @@ const BlogPage = ({}: Props) => {
 
   return (
     <>
-      <AppHeaderComponent activeNav={3}  />
+      <AppHeaderComponent activeNav={3} />
       <section
         className={`spacing-class gradient ${styles["intro-section"]}`}
         id="blog-page-section"
@@ -57,6 +59,8 @@ const BlogPage = ({}: Props) => {
           </div>
         </div>
       </section>
+      <ScrollToTopButton data-aos="fade-up" data-aos-delay={0} />
+      <AppFooterComponent />
     </>
   );
 };

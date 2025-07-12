@@ -10,6 +10,7 @@ import { blogPosts } from "../../data/blogData";
 import BlogCardComponent from "../blog-card";
 import { useNavigate } from "react-router";
 import AppFooterComponent from "../app-footer";
+import ScrollToTopButton from "../scroll-to-top";
 
 const LandingPageComponent: React.FC = () => {
   const { CoreValues, LegalServices } = useLandingPageStore();
@@ -70,8 +71,19 @@ const LandingPageComponent: React.FC = () => {
     }
   };
 
+  const onMoreAboutUsClick = () => {
+    const targetElement = document.getElementById("aboutus-section");
+    if (targetElement) {
+      const elementPosition =
+        targetElement.getBoundingClientRect().top + window.pageYOffset;
+      const offset = 83;
+      scrollToWithAnimation(elementPosition - offset, 1000);
+    }
+  };
+
   return (
     <>
+      <ScrollToTopButton data-aos="fade-up" data-aos-delay="50" />
       <section
         className={`spacing-class gradient ${styles["intro-section"]}`}
         id="intro-section"
@@ -80,7 +92,7 @@ const LandingPageComponent: React.FC = () => {
           <div className="row m-0 px-0 pt-0 position-relative pb-5">
             <div className={styles["bouncing-ball"]}></div>
             <div className={styles["bouncing-ball-2"]}></div>
-            <div className="col-md-7 p-0">
+            <div className="col-md-7 col-12 p-0">
               <div className="h-100 d-flex gap-4 flex-column justify-content-center position-relative">
                 <div className="after-element"></div>
                 <h2 data-aos="fade-up">
@@ -97,13 +109,18 @@ const LandingPageComponent: React.FC = () => {
                   data-aos="fade-up"
                   data-aos-delay="200"
                 >
-                  <button className="fancy-button-1">More About Us</button>
+                  <button
+                    className="fancy-button-1"
+                    onClick={() => onMoreAboutUsClick()}
+                  >
+                    More About Us
+                  </button>
                 </div>
               </div>
             </div>
 
             <div
-              className="col-md-5 p-0"
+              className="col-md-5 d-md-block d-none p-0"
               data-aos="fade-left"
               data-aos-delay="300"
             >
@@ -341,7 +358,7 @@ const LandingPageComponent: React.FC = () => {
             and practical advice from our experienced team of attorneys.
           </p>
 
-          <div className="row justify-content-center mb-5">
+          <div className="row justify-content-center mb-md-5 mb-3">
             {blogPosts.map(
               (blog, index) =>
                 index < 3 && (

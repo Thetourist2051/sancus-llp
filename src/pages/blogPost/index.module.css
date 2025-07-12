@@ -99,3 +99,14 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .blogpost-section {
+        img {
+            height: auto;
+        }
+        h3{
+            font-size: 2rem;
+        }
+    }
+}

@@ -215,7 +215,7 @@
 /* Responsive enhancements */
 @media (max-width: 768px) {
     .blog-card {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
 
     .card-content {

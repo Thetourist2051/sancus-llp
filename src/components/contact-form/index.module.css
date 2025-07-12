@@ -186,3 +186,10 @@ body[data-theme="light"] .form-box textarea {
     border-color: #cccccc;
     color: #1a1a1a;
 }
+
+@media (max-width: 768px) {
+    .form-box {
+        padding: 1.25rem;
+    }
+
+}

@@ -29,11 +29,17 @@ const BlogCardComponent = ({ blog, ...aosProps }: Props) => {
           <div className={styles["card-content"]}>
             <div className="d-flex justify-content-between align-items-center px-0 mb-3">
               <div className="d-flex align-items-center gap-2">
-                <Icon icon={"solar:calendar-broken"} height={14} width={14} />
+                <Icon
+                  color="var(--text-muted)"
+                  icon={"solar:calendar-broken"}
+                  height={14}
+                  width={14}
+                />
                 <h6>{blog.date}</h6>
               </div>
               <div className="d-flex align-items-center gap-2">
                 <Icon
+                  color="var(--text-muted)"
                   icon={"solar:user-circle-broken"}
                   height={14}
                   width={14}
@@ -42,6 +48,7 @@ const BlogCardComponent = ({ blog, ...aosProps }: Props) => {
               </div>
               <div className="d-flex align-items-center gap-2">
                 <Icon
+                  color="var(--text-muted)"
                   icon={"fluent:read-aloud-24-regular"}
                   height={14}
                   width={14}
