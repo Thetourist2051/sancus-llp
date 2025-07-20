@@ -2,12 +2,25 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import AppHeaderComponent from "../../components/app-header";
 import styles from "./index.module.css";
-import { blogPosts, type BlogPost } from "../../data/blogData";
+import { blogPosts } from "../../data/blogData";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import AppFooterComponent from "../../components/app-footer";
 import ScrollToTopButton from "../../components/scroll-to-top";
+
+interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string;
+  content: string;
+  image: string;
+  author: string;
+  date: string;
+  category: string;
+  readTime: number;
+  tags: string[];
+}
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -143,7 +156,7 @@ const BlogPost = () => {
           </div>
         </div>
       </section>
-      <ScrollToTopButton data-aos="none"  />
+      <ScrollToTopButton data-aos="none" />
       <AppFooterComponent />
     </>
   );

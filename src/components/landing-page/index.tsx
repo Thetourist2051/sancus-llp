@@ -13,7 +13,7 @@ import AppFooterComponent from "../app-footer";
 import ScrollToTopButton from "../scroll-to-top";
 
 const LandingPageComponent: React.FC = () => {
-  const { CoreValues, LegalServices } = useLandingPageStore();
+  const { LegalServices } = useLandingPageStore();
   const navigate = useNavigate();
 
   const scrollToWithAnimation = (targetY: number, duration = 800) => {
@@ -233,7 +233,7 @@ const LandingPageComponent: React.FC = () => {
         </div>
       </section>
 
-      <section
+      {/* <section
         className={`spacing-class gradient ${styles["corevalue-section"]}`}
         id="corevalue-section"
       >
@@ -285,10 +285,10 @@ const LandingPageComponent: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section
-        className={`spacing-class alternate-gradient ${styles["services-section"]}`}
+        className={`spacing-class gradient ${styles["services-section"]}`}
         id="services-section"
       >
         <div className="container">
@@ -342,7 +342,7 @@ const LandingPageComponent: React.FC = () => {
       </section>
 
       <section
-        className={`spacing-class gradient ${styles["blog-section"]}`}
+        className={`spacing-class alternate-gradient ${styles["blog-section"]}`}
         id="blogs-section"
       >
         <div className="container">
@@ -398,9 +398,7 @@ const LandingPageComponent: React.FC = () => {
         </div>
       </section>
 
-      <section
-        className={`spacing-class alternate-gradient ${styles["cta-section"]}`}
-      >
+      <section className={`spacing-class gradient ${styles["cta-section"]}`}>
         <div className="container text-center" data-aos="zoom-in">
           <h2 className={styles["cta-title"]}>
             Need <span className="theme-text">Legal</span> Assistance?
@@ -410,7 +408,7 @@ const LandingPageComponent: React.FC = () => {
             legal challenges. Contact us today for a confidential consultation.
           </p>
           <button className="fancy-button-2" onClick={onFreeConsultationClick}>
-            <span className="text">Get Free Consultation</span>
+            <span className="text">Get Consultation</span>
           </button>
         </div>
       </section>
