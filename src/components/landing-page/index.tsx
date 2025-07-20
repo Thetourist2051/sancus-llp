@@ -155,26 +155,64 @@ const LandingPageComponent: React.FC = () => {
         id="aboutus-section"
       >
         <div className="container">
+          <h2 className={styles["section-title"]} data-aos="fade-right">
+            About <span>Sancus LLP</span>
+          </h2>
+
+          <p className={styles["section-subtitle"]} data-aos="fade-right">
+            We pride ourselves on combining courtroom excellence with strategic
+            foresight, offering both contentious and non-contentious legal
+            support.
+          </p>
+
           <div className="row m-0 p-0">
             <div className="col-md-6 d-flex flex-column gap-3 gap-4 justify-content-center py-4 px-md-4 px-0">
-              <h2 className={styles["section-title"]} data-aos="fade-right">
-                About <span>Sancus LLP</span>
-              </h2>
               <p
                 className={styles["section-description"]}
                 data-aos="fade-right"
                 data-aos-delay="100"
               >
-                With over 25 years of experience in the legal field, Sancus LLP
-                has established itself as a trusted partner for individuals and
-                businesses seeking comprehensive legal solutions.
+                <span className="theme-text">Sancus Legal LLP</span> is a
+                premier full-service law firm headquartered in{" "}
+                <span className="theme-text">New Delhi</span>, with a robust
+                operational footprint across{" "}
+                <span className="theme-text">New Delhi</span>,{" "}
+                <span className="theme-text">Patna</span>,{" "}
+                <span className="theme-text">Ranchi</span>,{" "}
+                <span className="theme-text">Allahabad</span> and{" "}
+                <span className="theme-text">Kolkata</span>. We deliver
+                end-to-end legal solutions—from strategic advisory to rigorous
+                litigation—across a diverse spectrum of legal disciplines. Our
+                multidisciplinary teams ensure that our clients receive
+                proactive, result-oriented, and nuanced counsel at every stage
+                of their legal journey.
               </p>
+            </div>
+
+            <div
+              className="col-md-6 py-4 ps-md-4 pe-md-0 px-0"
+              data-aos="fade-left"
+              data-aos-delay="300"
+            >
               <ul className={styles["feature-list"]}>
                 {[
-                  "25+ Years of Legal Excellence",
-                  "Comprehensive Legal Knowledge",
-                  "Client-Centered Approach",
-                  "Results-Driven Solutions",
+                  <>
+                    The{" "}
+                    <span className="theme-text">
+                      Hon’ble Supreme Court of India
+                    </span>
+                  </>,
+                  <>
+                    Various <span className="theme-text">High Courts</span>{" "}
+                    (Delhi, Bihar, Jharkhand, West Bengal and Uttar Pradesh)
+                  </>,
+                  <>
+                    A wide array of{" "}
+                    <span className="theme-text">
+                      Tribunals, Quasi-judicial Authorities
+                    </span>
+                    , and <span className="theme-text">Statutory Forums</span>
+                  </>,
                 ].map((item, index) => (
                   <li
                     key={index}
@@ -186,48 +224,6 @@ const LandingPageComponent: React.FC = () => {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            <div
-              className="col-md-6 py-4 ps-md-4 pe-md-0 px-0"
-              data-aos="fade-left"
-              data-aos-delay="300"
-            >
-              <div
-                className={`${styles["card-box"]} card-hover`}
-                data-aos="zoom-in"
-                data-aos-delay="400"
-              >
-                <div className={styles["card-icon"]}>
-                  <Icon
-                    icon="fluent-emoji-high-contrast:balance-scale"
-                    className={`${styles["main-icon"]} icon-animated`}
-                  />
-                </div>
-                <h3>Justice & Integrity</h3>
-                <p className={`${styles["border-bottom"]} pb-3 mb-3`}>
-                  We believe in upholding the highest standards of legal
-                  practice, ensuring justice is served with integrity and
-                  professionalism.
-                </p>
-                <div className={styles["stats-grid"]}>
-                  {[
-                    "500+ Cases Won",
-                    "98% Success Rate",
-                    "1000+ Satisfied Clients",
-                    "15 Practice Areas",
-                  ].map((stat, index) => (
-                    <div
-                      key={index}
-                      data-aos="fade-up"
-                      data-aos-delay={`${index * 100 + 500}`}
-                    >
-                      <h4>{stat.split(" ")[0]}</h4>
-                      <p>{stat.split(" ").slice(1).join(" ")}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>
