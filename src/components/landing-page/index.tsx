@@ -155,11 +155,22 @@ const LandingPageComponent: React.FC = () => {
         id="aboutus-section"
       >
         <div className="container">
-          <h2 className={styles["section-title"]} data-aos="fade-right">
+          <h2
+            className={styles["section-title"]}
+            data-aos="fade-right"
+            data-aos-duration="600"
+            data-aos-easing="ease-out-cubic"
+          >
             About <span>Sancus LLP</span>
           </h2>
 
-          <p className={styles["section-subtitle"]} data-aos="fade-right">
+          <p
+            className={styles["section-subtitle"]}
+            data-aos="fade-right"
+            data-aos-delay="100"
+            data-aos-duration="600"
+            data-aos-easing="ease-out-cubic"
+          >
             We pride ourselves on combining courtroom excellence with strategic
             foresight, offering both contentious and non-contentious legal
             support.
@@ -168,9 +179,13 @@ const LandingPageComponent: React.FC = () => {
           <div className="row m-0 p-0">
             <div className="col-md-6 d-flex flex-column gap-3 gap-4 justify-content-center py-4 px-md-4 px-0">
               <p
-                className={styles["section-description"]}
-                data-aos="fade-right"
-                data-aos-delay="100"
+                className={
+                  styles["section-description"] + " " + styles["class-p"]
+                }
+                data-aos="fade-up"
+                data-aos-delay="200"
+                data-aos-duration="600"
+                data-aos-easing="ease-out-cubic"
               >
                 <span className="theme-text">Sancus Legal LLP</span> is a
                 premier full-service law firm headquartered in{" "}
@@ -193,36 +208,60 @@ const LandingPageComponent: React.FC = () => {
               className="col-md-6 py-4 ps-md-4 pe-md-0 px-0"
               data-aos="fade-left"
               data-aos-delay="300"
+              data-aos-duration="600"
+              data-aos-easing="ease-out-cubic"
             >
               <ul className={styles["feature-list"]}>
-                {[
-                  <>
+                <li
+                  className={styles["scroll-animate"]}
+                  data-aos="fade-left"
+                  data-aos-delay="400"
+                  data-aos-duration="500"
+                >
+                  <Icon
+                    className={styles["icon"]}
+                    icon="material-symbols-light:check-rounded"
+                  ></Icon>
+                  <span>
                     The{" "}
                     <span className="theme-text">
-                      Hon’ble Supreme Court of India
+                      Hon'ble Supreme Court of India
                     </span>
-                  </>,
-                  <>
+                  </span>
+                </li>
+                <li
+                  className={styles["scroll-animate"]}
+                  data-aos="fade-left"
+                  data-aos-delay="500"
+                  data-aos-duration="500"
+                >
+                  <Icon
+                    className={styles["icon"]}
+                    icon="material-symbols-light:check-rounded"
+                  ></Icon>
+                  <span>
                     Various <span className="theme-text">High Courts</span>{" "}
                     (Delhi, Bihar, Jharkhand, West Bengal and Uttar Pradesh)
-                  </>,
-                  <>
+                  </span>
+                </li>
+                <li
+                  className={styles["scroll-animate"]}
+                  data-aos="fade-left"
+                  data-aos-delay="600"
+                  data-aos-duration="500"
+                >
+                  <Icon
+                    className={styles["icon"]}
+                    icon="material-symbols-light:check-rounded"
+                  ></Icon>
+                  <span>
                     A wide array of{" "}
                     <span className="theme-text">
                       Tribunals, Quasi-judicial Authorities
                     </span>
                     , and <span className="theme-text">Statutory Forums</span>
-                  </>,
-                ].map((item, index) => (
-                  <li
-                    key={index}
-                    data-aos="fade-right"
-                    data-aos-delay={`${index * 100 + 200}`}
-                  >
-                    <Icon icon="mdi:shield-check" className="icon-animated" />
-                    <span>{item}</span>
-                  </li>
-                ))}
+                  </span>
+                </li>
               </ul>
             </div>
           </div>

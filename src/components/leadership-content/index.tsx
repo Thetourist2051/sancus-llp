@@ -1,45 +1,50 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./index.module.css";
 import { useLandingPageStore } from "../../store/landing-page-store";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import AOS from "aos";
 import "aos/dist/aos.css";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 type Props = {};
 
 const LeadershipContentComponenet: React.FC<Props> = () => {
   const { LeadershipData } = useLandingPageStore();
-  const [index, setIndex] = useState(0);
-  const [direction, setDirection] = useState<"left" | "right">("right");
 
-  useEffect(() => {
-    AOS.init({
-      duration: 800,
-      easing: "ease-in-out",
-      once: true,
-      offset: 100,
-    });
-  }, []);
-
-  const goToNext = () => {
-    setDirection("right");
-    setIndex((prev) => (prev + 1) % LeadershipData.length);
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1,
+      partialVisibilityGutter: 40,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 1,
+      partialVisibilityGutter: 30,
+    },
+    mobile: {
+      breakpoint: { max: 768, min: 0 },
+      items: 1,
+      partialVisibilityGutter: 20,
+    },
   };
 
-  const goToPrev = () => {
-    setDirection("left");
-    setIndex((prev) => (prev === 0 ? LeadershipData.length - 1 : prev - 1));
-  };
-
-  const goToSlide = (i: number) => {
-    setDirection(i > index ? "right" : "left");
-    setIndex(i);
-  };
-
-  useEffect(() => {
-    const timer = setInterval(goToNext, 10000);
-    return () => clearInterval(timer);
-  }, [index]);
+  const CustomDot = ({ onClick, active }: any) => (
+    <span
+      onClick={onClick}
+      style={{
+        width: "12px",
+        height: "12px",
+        borderRadius: "50%",
+        backgroundColor: active ? "var(--theme-color, #c5a059)" : "#ccc",
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+        transform: active ? "scale(1.3)" : "scale(1)",
+        display: "inline-block",
+        margin: "0 4px",
+      }}
+    />
+  );
 
   return (
     <section
@@ -65,70 +70,65 @@ const LeadershipContentComponenet: React.FC<Props> = () => {
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          <button
-            className={`${styles.arrow} ${styles.left}`}
-            onClick={goToPrev}
-            data-aos="fade-right"
-            data-aos-delay="300"
-          >
-            <Icon icon="pepicons-print:angle-left" height={20} width={20} />
-          </button>
-
-          <div
-            className={styles.slide}
-            key={index}
-            data-aos={direction === "right" ? "fade-left" : "fade-right"}
-            data-aos-duration="500"
-          >
-            <div className="d-flex w-full gap-md-3 gap-2 mb-3 align-items-center">
-              <div className={styles["icon"]}>
+          <Carousel
+            responsive={responsive}
+            arrows
+            infinite
+            autoPlay={true}
+            autoPlaySpeed={10000}
+            showDots
+            customDot={<CustomDot />}
+            renderDotsOutside={true}
+            keyBoardControl
+            dotListClass={styles["dotList"]}
+            customTransition="all 0.5s ease"
+            containerClass={styles["carousel-container"]}
+            itemClass={styles["carousel-item"]}
+            customLeftArrow={
+              <button className={`${styles.arrow} ${styles.left}`}>
+                <Icon icon="pepicons-print:angle-left" height={20} width={20} />
+              </button>
+            }
+            customRightArrow={
+              <button className={`${styles.arrow} ${styles.right}`}>
                 <Icon
-                  icon={LeadershipData[index].icon}
-                  height={"85%"}
-                  width={"85%"}
-                  color="var(--text-light)"
+                  icon="pepicons-print:angle-right"
+                  height={20}
+                  width={20}
+                />
+              </button>
+            }
+          >
+            {LeadershipData.map((item, index) => (
+              <div className={styles.slide} key={index}>
+                <div className="d-flex w-full gap-md-3 gap-2 mb-3 align-items-center">
+                  <div className={styles.icon}>
+                    <Icon
+                      icon={item.icon}
+                      height={"85%"}
+                      width={"85%"}
+                      color="var(--text-light)"
+                    />
+                  </div>
+                  <div className={styles["card-content"]}>
+                    <h2 className="text-start">{item.name}</h2>
+                    <h4 className="text-start">{item.role}</h4>
+                  </div>
+                </div>
+                <p
+                  className={`${styles.location} my-3 d-flex justify-content-start align-items-center`}
+                >
+                  {item.location}
+                </p>
+                <div
+                  className={styles.description}
+                  dangerouslySetInnerHTML={{
+                    __html: item.descriptionHtml,
+                  }}
                 />
               </div>
-              <div className={styles["card-content"]}>
-                <h2 className="text-start">{LeadershipData[index].name}</h2>
-                <h4 className="text-start">{LeadershipData[index].role}</h4>
-              </div>
-            </div>
-            <p
-              className={`${styles.location} my-3 d-flex justify-content-start align-items-center`}
-            >
-              {LeadershipData[index].location}
-            </p>
-            <div
-              className={styles.description}
-              dangerouslySetInnerHTML={{
-                __html: LeadershipData[index].descriptionHtml,
-              }}
-            />
-          </div>
-
-          <button
-            className={`${styles.arrow} ${styles.right}`}
-            onClick={goToNext}
-            data-aos="fade-left"
-            data-aos-delay="300"
-          >
-            <Icon icon="pepicons-print:angle-right" height={20} width={20} />
-          </button>
-
-          <div
-            className={styles.controls}
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            {LeadershipData.map((_, i) => (
-              <span
-                key={i}
-                onClick={() => goToSlide(i)}
-                className={`${styles.dot} ${index === i ? styles.active : ""}`}
-              ></span>
             ))}
-          </div>
+          </Carousel>
         </div>
       </div>
     </section>
