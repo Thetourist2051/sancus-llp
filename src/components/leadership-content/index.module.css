@@ -164,7 +164,16 @@
 
 @media (max-width: 768px) {
     .slide {
-        padding: 1rem 1.25rem;
+        padding: 1.25rem 1.5rem;
+        width: 90%;
+    }
+
+    .left {
+        left: 0;
+    }
+
+    .right {
+        right: 0;
     }
 
     .icon {
