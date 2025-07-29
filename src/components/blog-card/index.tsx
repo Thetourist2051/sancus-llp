@@ -1,7 +1,8 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
-import type { BlogPost } from "../../data/blogData";
 import styles from "./index.module.css";
 import { useNavigate } from "react-router";
+import type { BlogPost } from "../../store/landing-page-store";
+import blogPlaceholder from "../../assets/blogPlaceholder.jpg";
 
 type Props = {
   blog: BlogPost;
@@ -22,9 +23,18 @@ const BlogCardComponent = ({ blog, ...aosProps }: Props) => {
       >
         <div className={styles["blog-card"]}>
           <div className={styles["image-container"]}>
-            <img src={blog.image} alt={blog.title} />
+            <img
+              src={`http://localhost:3000/${blog.image}`}
+              alt={blog.title}
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = blogPlaceholder;
+              }}
+            />
             <div className={styles["image-overlay"]}></div>
-            <div className={styles["category-floating"]}>{blog.category}</div>
+            <div className={styles["category-floating"]}>
+              {blog.categoryName}
+            </div>
           </div>
           <div className={styles["card-content"]}>
             <div className="d-flex justify-content-between align-items-center px-0 mb-3">
@@ -35,7 +45,7 @@ const BlogCardComponent = ({ blog, ...aosProps }: Props) => {
                   height={14}
                   width={14}
                 />
-                <h6>{blog.date}</h6>
+                <h6>{blog.createdAt}</h6>
               </div>
               <div className="d-flex align-items-center gap-2">
                 <Icon
@@ -44,7 +54,7 @@ const BlogCardComponent = ({ blog, ...aosProps }: Props) => {
                   height={14}
                   width={14}
                 />
-                <h6>{blog.author}</h6>
+                <h6>{blog.writtenBy}</h6>
               </div>
               <div className="d-flex align-items-center gap-2">
                 <Icon
@@ -53,11 +63,11 @@ const BlogCardComponent = ({ blog, ...aosProps }: Props) => {
                   height={14}
                   width={14}
                 />
-                <h6>{blog.readTime} mins</h6>
+                <h6>{blog?.readTime} mins</h6>
               </div>
             </div>
             <h3 className="ellipsis-text-2-line">{blog.title}</h3>
-            <h5 className="ellipsis-text-3-line">{blog.excerpt}</h5>
+            <h5 className="ellipsis-text-3-line">{blog?.summary}</h5>
             <div
               className={styles["read-more"]}
               onClick={() => onReadMoreClick()}

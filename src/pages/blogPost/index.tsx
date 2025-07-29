@@ -2,12 +2,13 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import AppHeaderComponent from "../../components/app-header";
 import styles from "./index.module.css";
-import { blogPosts } from "../../data/blogData";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import AppFooterComponent from "../../components/app-footer";
 import ScrollToTopButton from "../../components/scroll-to-top";
+import { useLandingPageStore } from "../../store/landing-page-store";
+import blogPlaceholder from "../../assets/blogPlaceholder.jpg";
 
 interface BlogPost {
   id: number;
@@ -24,8 +25,9 @@ interface BlogPost {
 
 const BlogPost = () => {
   const navigate = useNavigate();
+  const { blogsPost } = useLandingPageStore();
   const { title } = useParams<{ title: string }>();
-  const selectedBlog = blogPosts.find((blog) => blog.title === title);
+  const selectedBlog = blogsPost.find((blog) => blog.title === title);
 
   useEffect(() => {
     // Initialize AOS
@@ -35,7 +37,6 @@ const BlogPost = () => {
       once: true,
     });
 
-    // Scroll to top on page load
     window.scrollTo(0, 0);
   }, []);
 
@@ -76,7 +77,7 @@ const BlogPost = () => {
                 data-aos="fade-up"
                 data-aos-delay="150"
               >
-                {selectedBlog.category}
+                {selectedBlog.categoryName}
               </div>
 
               <h3 className="my-3 py-1" data-aos="fade-up" data-aos-delay="200">
@@ -95,7 +96,7 @@ const BlogPost = () => {
                     height={20}
                     width={20}
                   />
-                  <h6>{selectedBlog.date}</h6>
+                  <h6>{selectedBlog.createdAt}</h6>
                 </div>
                 <div className="d-flex align-items-center gap-2">
                   <Icon
@@ -104,7 +105,7 @@ const BlogPost = () => {
                     width={20}
                     color={"var(--text-muted)"}
                   />
-                  <h6>{selectedBlog.author}</h6>
+                  <h6>{selectedBlog.writtenBy}</h6>
                 </div>
                 <div className="d-flex align-items-center gap-2">
                   <Icon
@@ -118,16 +119,20 @@ const BlogPost = () => {
               </div>
 
               <img
-                src={selectedBlog.image}
                 className="mb-md-5 mb-3"
                 alt={selectedBlog.title}
                 data-aos="zoom-in"
                 data-aos-delay="300"
+                src={`http://localhost:3000/${selectedBlog.image}`}
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = blogPlaceholder;
+                }}
               />
 
               <div
                 className="description"
-                dangerouslySetInnerHTML={{ __html: selectedBlog.content }}
+                dangerouslySetInnerHTML={{ __html: selectedBlog.description }}
                 data-aos="fade-up"
                 data-aos-delay="350"
               ></div>
@@ -139,7 +144,7 @@ const BlogPost = () => {
                 data-aos-delay="400"
               >
                 <div className="d-flex flex-wrap align-items-center gap-3">
-                  {selectedBlog.tags?.map((tag, index) => (
+                  {selectedBlog?.tags?.split(",")?.map((tag, index) => (
                     <div
                       key={index}
                       className={

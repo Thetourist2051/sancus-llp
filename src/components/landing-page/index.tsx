@@ -6,7 +6,6 @@ import ContactFormComponenet from "../contact-form";
 import LeadershipContentComponenet from "../leadership-content";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { blogPosts } from "../../data/blogData";
 import BlogCardComponent from "../blog-card";
 import { useNavigate } from "react-router";
 import AppFooterComponent from "../app-footer";
@@ -14,6 +13,8 @@ import ScrollToTopButton from "../scroll-to-top";
 
 const LandingPageComponent: React.FC = () => {
   const { LegalServices } = useLandingPageStore();
+  const blogsPost = useLandingPageStore((state) => state.blogsPost);
+  console.log("blogs===================>", blogsPost);
   const navigate = useNavigate();
 
   const scrollToWithAnimation = (targetY: number, duration = 800) => {
@@ -394,7 +395,7 @@ const LandingPageComponent: React.FC = () => {
           </p>
 
           <div className="row justify-content-center mb-md-5 mb-3">
-            {blogPosts.map(
+            {blogsPost.map(
               (blog, index) =>
                 index < 3 && (
                   <>

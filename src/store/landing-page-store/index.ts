@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import axios from "axios";
 
 export interface LegalServiceItem {
   id: string;
@@ -221,6 +222,24 @@ export type LeadershipProfile = {
   descriptionHtml: string;
 };
 
+export interface BlogPost {
+  id: number;
+  title: string;
+  categoryName: string;
+  description: string;
+  tags: string;
+  writtenBy: string;
+  image: string;
+  published: boolean;
+  isActive: boolean;
+  createdBy: string;
+  updatedBy: string;
+  createdAt: string;
+  updatedAt: string;
+  readTime?: number;
+  summary?: string;
+}
+
 const LeadershipProfiles: LeadershipProfile[] = [
   {
     name: "Kumar Bhaskar",
@@ -282,11 +301,44 @@ export interface LandingPageStoreInterface {
   CoreValues: CoreValue[];
   ContactInfo: any[];
   LeadershipData: any[];
+  fetchPost: () => Promise<any>;
+  blogsPost: BlogPost[];
+  blogLoading: boolean;
 }
 
-export const useLandingPageStore = create<LandingPageStoreInterface>(() => ({
+export const useLandingPageStore = create<LandingPageStoreInterface>((set) => ({
   LegalServices: legalServices,
   CoreValues: coreValues,
   ContactInfo: [],
   LeadershipData: LeadershipProfiles,
+  blogsPost: [],
+  blogLoading: false,
+
+  fetchPost: async () => {
+    try {
+      set({ blogLoading: true });
+
+      const res = await axios.get("http://localhost:3000/public/blogs");
+
+      // Ensure API success
+      if (res.data?.success && Array.isArray(res.data.data)) {
+        const resData: BlogPost[] = res.data.data.map((item: BlogPost) => ({
+          ...item,
+          readTime: 8,
+          summary: "lorem dfdf",
+        }));
+
+        set({ blogsPost: resData });
+      } else {
+        console.warn("API response invalid or unsuccessful:", res.data);
+        set({ blogsPost: [] });
+      }
+    } catch (error) {
+      console.error("Error fetching blog posts:", error);
+      set({ blogsPost: [] });
+    } finally {
+      set({ blogLoading: false });
+    }
+  },
+  
 }));
